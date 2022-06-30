@@ -137,7 +137,7 @@ $ docker-compose up
 Give Kibana about a minute to initialize, then access the Kibana web UI by opening <http://localhost:5601> in a web
 browser and use the following (default) credentials to log in:
 
-- username: _elastic_
+- user: _elastic_
 - password: _changeme_
 
 > **Note**  
