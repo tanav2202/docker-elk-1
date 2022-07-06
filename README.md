@@ -1,3 +1,37 @@
+# Specifics done in IIIT Delhi server
+
+After ELK on Docker has been set-up and all input files have been converted to GeoJSON:
+open Kibana and manually add the GeoJSON files and save to the dashboard
+
+# Creating GeoJSON Files
+
+## For txt files 
+Use python script to convert to csv files
+
+```
+import sys
+import csv
+
+tabin = csv.reader(sys.stdin, dialect=csv.excel_tab)
+commaout = csv.writer(sys.stdout, dialect=csv.excel)
+for row in tabin:
+  commaout.writerow(row)
+```
+
+` python conversion_script.py < input.txt > output.csv `
+
+## For csv files 
+Install npm package
+` sudo npm install -g csv2geojson `
+
+Convert input.csv to geodata.geojson file using:
+
+` csv2geojson --lat Latitude --lon Longitude input.csv > geodata.geojson `
+
+Note: Here Latitute = Column name where latitudes are stored and Longitude = Column name where longitudes are stored. 
+
+
+
 # Elastic stack (ELK) on Docker
 
 [![Elastic Stack version](https://img.shields.io/badge/Elastic%20Stack-8.2.3-00bfb3?style=flat&logo=elastic-stack)](https://www.elastic.co/blog/category/releases)
